@@ -1,0 +1,2 @@
+package com.visionerp.repository; import com.visionerp.entity.Attendance; import org.springframework.data.jpa.repository.*; import java.time.*; import java.util.*;
+public interface AttendanceRepository extends JpaRepository<Attendance,Long>{Optional<Attendance> findByEmployeeIdAndWorkDate(Long id,LocalDate d); long countByWorkDateAndStatus(LocalDate d,String s); List<Attendance> findByWorkDateOrderByCheckInDesc(LocalDate d); List<Attendance> findByEmployeeIdOrderByWorkDateDesc(Long id);}

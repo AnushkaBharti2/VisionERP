@@ -1,0 +1,1 @@
+package com.visionerp.repository; import com.visionerp.entity.Visitor; import org.springframework.data.jpa.repository.JpaRepository; import java.time.*; import java.util.*; public interface VisitorRepository extends JpaRepository<Visitor,Long>{long countByStatus(String status); List<Visitor> findAllByOrderByCreatedAtDesc();}

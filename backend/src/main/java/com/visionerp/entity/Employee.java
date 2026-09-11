@@ -1,0 +1,3 @@
+package com.visionerp.entity;
+import jakarta.persistence.*; import java.time.LocalDate;
+@Entity @Table(name="employees") public class Employee { @Id @GeneratedValue(strategy=GenerationType.IDENTITY) public Long id; @Column(nullable=false,unique=true) public String employeeCode; @Column(nullable=false) public String firstName; @Column(nullable=false) public String lastName; @Column(nullable=false,unique=true) public String email; public String phone; public String designation; public LocalDate joiningDate; public boolean active=true; @ManyToOne(fetch=FetchType.EAGER) public Department department; @Enumerated(EnumType.STRING) public Role role=Role.EMPLOYEE; }

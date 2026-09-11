@@ -1,0 +1,2 @@
+package com.visionerp.controller; import com.visionerp.repository.AuditLogRepository; import org.springframework.security.access.prepost.PreAuthorize; import org.springframework.web.bind.annotation.*;
+@RestController @RequestMapping("/api/audit") public class AuditController {private final AuditLogRepository r;public AuditController(AuditLogRepository r){this.r=r;}@GetMapping @PreAuthorize("hasRole('ADMIN')")public Object all(){return r.findTop50ByOrderByCreatedAtDesc();}}

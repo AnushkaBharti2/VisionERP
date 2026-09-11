@@ -1,0 +1,2 @@
+package com.visionerp.service; import com.visionerp.entity.AuditLog; import com.visionerp.repository.AuditLogRepository; import org.springframework.stereotype.Service;
+@Service public class AuditService {private final AuditLogRepository repo;public AuditService(AuditLogRepository r){repo=r;}public void log(String actor,String action,String type,String id,String details){AuditLog x=new AuditLog();x.actorEmail=actor;x.action=action;x.entityType=type;x.entityId=id;x.details=details;repo.save(x);}}
